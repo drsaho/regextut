@@ -1,6 +1,5 @@
-# Title (replace with your title)
+# Understanding Regex for Matching a Hexadecimal Color Value
 
-Understanding Regex for Matching a Hexadecimal Color Value
 
 ## Summary
 
