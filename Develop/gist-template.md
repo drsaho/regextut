@@ -72,14 +72,47 @@ Ranges: You can specify a range of characters, like [0-9] for digits or [A-Fa-f]
 Negation: Placing a caret ^ at the beginning negates the class, so [^a-z] matches any character that is not a lowercase letter.
 
 ### Greedy and Lazy Match
+These terms describe how much of the input string a quantifier consumes.
 
+Greedy Match: Greedy quantifiers match as much as possible.
+Example: a.*b matches from the first a to the last b in a string like aabbb.
+Syntax: *, +, ?, and {n,m} are all greedy by default.
+Lazy Match: Lazy quantifiers match as little as possible.
+Example: a.*?b matches from the first a to the first b, so in aabbb, it matches ab.
+Syntax: Appending a ? makes a quantifier lazy (e.g., *?, +?, ??, {n,m}?).
 
 ### Boundaries
+Boundaries are used to match positions rather than characters, often to enforce that a pattern appears at a certain place in a string.
+
+Word Boundary (\b): Matches the position between a word character and a non-word character.
+Example: \bword\b matches word as a whole word but not as part of sword or wordy.
+Non-Word Boundary (\B): Matches the position where \b does not match.
+Example: \Bword\B matches word in swordy but not word as a standalone word.
+Start of String (^): Ensures the match starts at the beginning of the string.
+End of String ($): Ensures the match ends at the end of the string.
 
 ### Back-references
+Back-references refer to previously captured groups, allowing the regex to match repeated patterns.
+
+Syntax: \1, \2, etc., where the number refers to the nth capturing group.
+Example: The regex (\w)\1 matches any two consecutive identical word characters, like aa or bb.
 
 ### Look-ahead and Look-behind
+Look-ahead and look-behind assertions allow you to match a pattern only if it is (or isn’t) followed or preceded by another pattern, without including that pattern in the match.
+
+Positive Look-ahead (?=...): Ensures that what follows the current position matches a given pattern.
+
+Example: a(?=b) matches a only if it’s followed by b, but b is not included in the match.
+Negative Look-ahead (?!...): Ensures that what follows does not match a given pattern.
+
+Example: a(?!b) matches a only if it’s not followed by b.
+Positive Look-behind (?<=...): Ensures that what precedes the current position matches a given pattern.
+
+Example: (?<=a)b matches b only if it’s preceded by a, but a is not included in the match.
+Negative Look-behind (?<!...): Ensures that what precedes does not match a given pattern.
+
+Example: (?<!a)b matches b only if it’s not preceded by a.
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Amadou Saho is one of the best full stack coders in the world. visit my repo at github.com/drsaho
